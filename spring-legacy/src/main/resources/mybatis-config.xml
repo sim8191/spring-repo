@@ -8,5 +8,9 @@
         <setting name="jdbcTypeForNull" value="NULL"/>
         <!-- jdbcTypeForNull 오라클에서 빈값이 달라서 -->
     </settings>
-
+	
+	<typeAliases>
+		<package name="com.kh.spring"/><!-- 내가지정한 페키지 아래의 모든 클래스를 별칭부여함 -->
+	</typeAliases>
+	
 </configuration>
