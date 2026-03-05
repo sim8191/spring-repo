@@ -58,5 +58,28 @@
 	  	<property name="dataSource" ref="datasource"></property>
 	  </bean>
 	  
+	  <!-- 
+	  	multipartResolver
+	  	 - Http요청 중 content type이 multipart(파일업로드)일때
+	  	 , 이를 담당하여 처리해주는 bean객체
+	  	 - request객체를 MultipartRequest객체로 자동변경해준다.
+	   -->
+	  <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+	  	<property name="defaultEncoding" value="utf-8"/>
+	  	<!-- 
+	  		maxUploadSize
+	  		 - 업로드 되는 전체 파일의 크기 제한 설정(바이트단위)
+	  		maxInMemorySize
+	  		 - 업로드 처리시 디스크에 파일을 생성하기 전, 메모리에 보관할 파일의
+	  		 최대 크기.
+	  		 - 업로드한 파일의 크기가 inMemorySize보다 크다면
+	  		 디스크에 임시 보관한다.
+	  		 
+	  		 inMemorySize사이즈가 크면 속도가 빠름
+	  		 안전하게 사용할려면 적게
+	  	 -->
+	  	<property name="maxUploadSize" value="10000000"/>
+	  	<property name="maxInMemorySize" value="2000000"></property>
+	  </bean>
 	  
 </beans>

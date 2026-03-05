@@ -145,7 +145,29 @@ CREATE SEQUENCE SEQ_CM_NO;
 
 
 
+-- 여기서부터는 이후에 작성한거 나중에 할거면 여기 아래는 삭제후 위쪽을 실행시킨후 아래를 작성하기
+--------------
+CREATE TABLE AUTHORITIES(
+    USER_NO NUMBER REFERENCES MEMBER,
+    AUTHORITY VARCHAR2(15),
+    PRIMARY KEY(USER_NO, AUTHORITY)
+);
 
+INSERT INTO authorities VALUES(10, 'ROLE_ADMIN'); -- 해당계정에 ADMIN권한을 부여
+INSERT INTO authorities VALUES(10, 'ROLE_USER'); -- 해당계정에 USER권한을 부여
+
+COMMIT;
+--------------
+CREATE TABLE persistent_logins (
+                username        VARCHAR(64)  NOT NULL,
+                series          VARCHAR(64)  PRIMARY KEY,
+                token           VARCHAR(64)  NOT NULL,
+                last_used       TIMESTAMP    NOT NULL
+            );
+
+            CREATE INDEX idx_persistent_logins_username
+            ON persistent_logins(username);
+--------------
 
 
 

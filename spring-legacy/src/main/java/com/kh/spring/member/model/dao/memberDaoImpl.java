@@ -20,8 +20,9 @@ public class memberDaoImpl implements memberDao{
 
 	@Override
 	public int insertMember(Member m) {
-		// TODO Auto-generated method stub
+		// 회원가입과 동시에 권한 추가
 		return session.insert("member.insertMember", m);
+		
 	}
 
 	@Override
@@ -36,4 +37,14 @@ public class memberDaoImpl implements memberDao{
 		return session.selectOne("member.selectOne", userId);
 	}
 	
+	@Override
+	public int updateMember(Member loginUser) {
+		return session.update("member.updateMember", loginUser);
+		
+	}
+	
+	@Override
+	public void insertAurthority(Member m) {
+		session.insert("member.insertAurthority", m);
+	}
 }

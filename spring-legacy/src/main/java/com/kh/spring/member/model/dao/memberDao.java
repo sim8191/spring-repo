@@ -12,4 +12,8 @@ public interface memberDao {
 
 	Member selectOne(String userId);
 
+	int updateMember(Member loginUser);
+
+	void insertAurthority(Member m);
+
 }
