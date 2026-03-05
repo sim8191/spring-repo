@@ -19,11 +19,3 @@ CREATE TABLE persistent_logins (
             CREATE INDEX idx_persistent_logins_username
             ON persistent_logins(username);
 --------------
-SELECT BOARD_NO,
-			BOARD_TITLE, USER_NAME AS BOARD_WRITER,
-			COUNT,
-			CREATE_DATE
-		FROM BOARD B
-		LEFT JOIN MEMBER M ON BOARD_WRITER = USER_NO
-        WHERE B.STATUS = 'Y' AND BOARD_CD = 'N'
-        ORDER BY BOARD_NO DESC
