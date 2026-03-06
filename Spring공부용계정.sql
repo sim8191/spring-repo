@@ -19,3 +19,18 @@ CREATE TABLE persistent_logins (
             CREATE INDEX idx_persistent_logins_username
             ON persistent_logins(username);
 --------------
+-- BOARDE = 'N' OFFSET 0, LIMIT 10
+SELECT * FROM(
+SELECT ROWNUM AS RNUM, T1.*
+FROM(
+SELECT BOARD_NO,
+			BOARD_TITLE, USER_NAME AS BOARD_WRITER,
+			COUNT,
+			CREATE_DATE
+		FROM BOARD B
+		LEFT JOIN MEMBER M ON BOARD_WRITER = USER_NO
+        WHERE B.STATUS = 'Y' AND BOARD_CD = #{boardCd}
+        ORDER BY BOARD_NO DESC) T1)
+        WHERE RNUM >= 10 AND RNUM <= 20
+--        OFFSET 0 ROWS FETCH NEXT 10 ROWS ONLY;
+        
