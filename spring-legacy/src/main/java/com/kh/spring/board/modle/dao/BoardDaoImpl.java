@@ -7,6 +7,7 @@ import org.apache.ibatis.session.RowBounds;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;
 
+import com.kh.spring.board.model.vo.BoardExt;
 import com.kh.spring.board.model.vo.BoardImg;
 import com.kh.spring.common.model.vo.PageInfo;
 import com.kh.spring.member.model.vo.Board;
@@ -99,5 +100,37 @@ public class BoardDaoImpl implements BoardDao {
 		// TODO Auto-generated method stub
 		return session.insert("board.insertBoardImgList", imgList);
 	}
+
+	@Override
+	public BoardExt selectBoard(int boardNo) {
+		// TODO Auto-generated method stub
+		return session.selectOne("board.selectBoard",boardNo);
+	}
+
+	@Override
+	public int increaseCount(int boardNo) {
+		// TODO Auto-generated method stub
+		return session.update("board.increaseCount",boardNo);
+	}
+
+	@Override
+	public int updateBoard(Board board) {
+		// TODO Auto-generated method stub
+		return session.update("board.updateBoard",board);
+	}
+
+	@Override
+	public int updateBoardImg(BoardImg bi) {
+		// TODO Auto-generated method stub
+		return session.update("board.updateBoardImg",bi);
+	}
+
+	@Override
+	public int deleteBoardImg(String deleteList) {
+		// TODO Auto-generated method stub
+		return session.delete("board.deleteBoardImg",deleteList);
+	}
+
+	
 
 }

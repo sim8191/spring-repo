@@ -3,6 +3,7 @@ package com.kh.spring.board.modle.dao;
 import java.util.List;
 import java.util.Map;
 
+import com.kh.spring.board.model.vo.BoardExt;
 import com.kh.spring.board.model.vo.BoardImg;
 import com.kh.spring.member.model.vo.Board;
 
@@ -19,5 +20,15 @@ public interface BoardDao {
 	int insertBoardImg(BoardImg bi);
 
 	int insertBoardImgList(List<BoardImg> imgList);
+
+	BoardExt selectBoard(int boardNo);
+
+	int increaseCount(int boardNo);
+
+	int updateBoardImg(BoardImg bi);
+
+	int deleteBoardImg(String deleteList);
+
+	int updateBoard(Board board);
 
 }
