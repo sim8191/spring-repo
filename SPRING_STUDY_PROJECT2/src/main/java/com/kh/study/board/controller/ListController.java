@@ -17,6 +17,8 @@ public class ListController {
 	@RequestMapping("/insert")
 	public String insertList() {
 		
+		
+		
 		return "border/insert";
 	}
 	
