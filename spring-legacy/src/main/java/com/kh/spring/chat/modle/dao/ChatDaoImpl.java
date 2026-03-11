@@ -45,5 +45,29 @@ public class ChatDaoImpl implements ChatDao {
 		// TODO Auto-generated method stub
 		return session.selectList("chat.selectChatMessage",join);
 	}
+
+	@Override
+	public int inertMessage(ChatMessage chatMessage) {
+		// TODO Auto-generated method stub
+		return session.insert("chat.inertMessage",chatMessage);
+	}
+
+	@Override
+	public int exitChatRoom(ChatMessage message) {
+		// TODO Auto-generated method stub
+		return session.delete("chat.exitChatRoom",message);
+	}
+
+	@Override
+	public int countChatRoomMember(ChatMessage message) {
+		// TODO Auto-generated method stub
+		return session.selectOne("chat.countChatRoomMember", message);
+	}
+
+	@Override
+	public int closeChatRoom(ChatMessage message) {
+		// TODO Auto-generated method stub
+		return session.update("closeChatRoom",message);
+	}
 	
 }

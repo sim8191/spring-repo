@@ -14,4 +14,8 @@ public interface ChatService {
 
 	List<ChatMessage> joinChatRoom(ChatRoomJoin join);
 
+	int inertMessage(ChatMessage chatMessage);
+
+	void exitChatRoom(ChatMessage message);
+
 }

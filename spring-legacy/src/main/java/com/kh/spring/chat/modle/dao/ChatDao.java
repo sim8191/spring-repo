@@ -18,6 +18,14 @@ public interface ChatDao {
 
 	List<ChatMessage> selectChatMessage(ChatRoomJoin join);
 
+	int inertMessage(ChatMessage chatMessage);
+
+	int exitChatRoom(ChatMessage message);
+
+	int countChatRoomMember(ChatMessage message);
+
+	int closeChatRoom(ChatMessage message);
+
 	
 
 }
