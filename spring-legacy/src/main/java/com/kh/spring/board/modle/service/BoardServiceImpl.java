@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.kh.spring.board.model.vo.BoardExt;
 import com.kh.spring.board.model.vo.BoardImg;
+import com.kh.spring.board.model.vo.BoardType;
 import com.kh.spring.board.modle.dao.BoardDao;
 import com.kh.spring.member.model.vo.Board;
 
@@ -122,6 +123,18 @@ public class BoardServiceImpl implements BoardService {
 		
 		
 		return result;
+	}
+
+	@Override
+	public List<String> selectFileList() {
+		// TODO Auto-generated method stub
+		return boardDao.selectFileList();
+	}
+
+	@Override
+	public List<BoardType> selectBoardTypeMap() {
+		// TODO Auto-generated method stub
+		return boardDao.selectBoardTypeMap();
 	}
 	
 }

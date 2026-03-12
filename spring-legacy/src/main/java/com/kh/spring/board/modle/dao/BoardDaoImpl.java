@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import com.kh.spring.board.model.vo.BoardExt;
 import com.kh.spring.board.model.vo.BoardImg;
+import com.kh.spring.board.model.vo.BoardType;
 import com.kh.spring.common.model.vo.PageInfo;
 import com.kh.spring.member.model.vo.Board;
 
@@ -129,6 +130,18 @@ public class BoardDaoImpl implements BoardDao {
 	public int deleteBoardImg(String deleteList) {
 		// TODO Auto-generated method stub
 		return session.delete("board.deleteBoardImg",deleteList);
+	}
+
+	@Override
+	public List<String> selectFileList() {
+		// TODO Auto-generated method stub
+		return session.selectList("board.selectFileList");
+	}
+
+	@Override
+	public List<BoardType> selectBoardTypeMap() {
+		// TODO Auto-generated method stub
+		return session.selectList("board.selectBoardTypeMap");
 	}
 
 	
